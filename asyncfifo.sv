@@ -10,14 +10,14 @@ module asyncfifo #(
 	parameter WIDTH = 8,
 	parameter DEPTH = 16
 )(
-	//read interface
+	//write interface
 	input  wire wr_clk,
 	input  wire wr_rstn,
 	input  wire wr_en,
 	input  wire [WIDTH-1:0] wr_data,
 	output reg full,
 
-	//write interface
+	//read interface
 	input  wire rd_clk,
 	input  wire rd_rstn,
 	input  wire rd_en,

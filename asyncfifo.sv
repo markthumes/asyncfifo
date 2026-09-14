@@ -11,15 +11,27 @@ module asyncfifo #(
 	parameter DEPTH = 16
 )(
 	//write interface
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 wr_clk CLK" *)
+  (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET wr_rstn" *)
 	input  wire wr_clk,
+
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 wr_rstn RST" *)
+  (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
 	input  wire wr_rstn,
+
 	input  wire wr_en,
 	input  wire [WIDTH-1:0] wr_data,
 	output reg full,
 
 	//read interface
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 rd_clk CLK" *)
+  (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET rd_rstn" *)
 	input  wire rd_clk,
+
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rd_rstn RST" *)
+  (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
 	input  wire rd_rstn,
+
 	input  wire rd_en,
 	output reg  [WIDTH-1:0] rd_data,
 	output reg empty
